@@ -42,7 +42,7 @@ const Home = () => {
   }
 
   return (
-    <div className='row m-0 p-0 bg-info mt-2' >
+    <div className='row m-0 p-0 mt-2' >
      <div className="col-md-2 col-sm-3 mt-2 create ">
       <button onClick={()=>setclicked(true)} className='btn btn-warning' >Create</button>
      </div>

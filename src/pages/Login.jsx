@@ -48,12 +48,12 @@ const Login = () => {
   }
 }
   return (
-    <main>
+    <main className='m-auto' style={{width:'50vw'}}>
     {/* <ModeToggle /> */}
     <CssBaseline />
     <Sheet
       sx={{
-        width: 500,
+        // width: 500,
         bgcolor:'burlywood',
         mx: 'auto', // margin left & right
         my: 4, // margin top & bottom

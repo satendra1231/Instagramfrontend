@@ -7,6 +7,7 @@ import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
+import { GiNurseMale } from "react-icons/gi";
 
 const Profile = () => {
   const [details, setdetails] = useState("");
@@ -86,12 +87,14 @@ const Profile = () => {
         }}
       >
         <AspectRatio flex ratio="1" maxHeight={182} sx={{ minWidth: 182 }}>
-          <img
+          {/* <img
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
             srcSet="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286&dpr=2 2x"
             loading="lazy"
             alt=""
-          />
+          /> */}
+          <GiNurseMale />
+            {/* {details.name[0]} */}
         </AspectRatio>
         <CardContent>
           <Typography sx={{ fontSize: 'xl', fontWeight: 'lg' }}>

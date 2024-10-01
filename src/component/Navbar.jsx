@@ -150,7 +150,7 @@ export default function Navbar() {
         </IconButton>
        
       </MenuItem>
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton
           size="large"
           aria-label="show 10 new notifications"
@@ -161,7 +161,7 @@ export default function Navbar() {
           </Badge>
         </IconButton>
       {login===true &&  <p>Notifications</p>}
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -216,7 +216,7 @@ export default function Navbar() {
              {login===true  && <Link to={'/yourpost'} style={{fontSize:"25px", color:"white", textDecoration:"none"}}>Your Posts</Link>}
               
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 10 new notifications"
               color="inherit"
@@ -224,7 +224,7 @@ export default function Navbar() {
            {login===true &&   <Badge  color="error">
                 <NotificationsIcon />
               </Badge>}
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
               edge="end"

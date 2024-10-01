@@ -43,7 +43,7 @@ const handleDelete = async(ans)=>{
 
 
   return (
-    <div className='row m-0 p-0 justify-content-center gap-2 bg-warning'>
+    <div className='row m-0 p-0 justify-content-center gap-2'>
       {
         blogs.map((ele)=>{
           return  <div className='col-3' style={{width:"400px"}}>

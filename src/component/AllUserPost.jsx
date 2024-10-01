@@ -115,7 +115,7 @@ const [selectedEle, setselectedEle] = useState("");
       }
       // console.log(commentPost)
     const submitCommentHandle = async(postId)=>{
-        console.log(postId)
+        // console.log(postId)
         let obj = {
           text:commentPost
         }
@@ -156,8 +156,8 @@ const [selectedEle, setselectedEle] = useState("");
                       right: 0,
                       m: '-2px',
                       borderRadius: '50%',
-                      background:
-                        'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
+                      // background:
+                      //   'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
                     },
                   }}
                 >
