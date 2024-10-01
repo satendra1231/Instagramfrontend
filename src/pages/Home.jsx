@@ -51,7 +51,7 @@ const Home = () => {
      </div>
 
      {
-      clicked  && <div className="form">
+      clicked  && <div className="form bg-dark">
       <button onClick={()=>setclicked(false)} type="button" class="btn-close bg-white btnCloseForm" aria-label="Close"></button>
  <form>
   <div className="mb-3">
