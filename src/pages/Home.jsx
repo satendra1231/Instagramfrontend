@@ -53,7 +53,7 @@ const Home = () => {
      {
       clicked  && <div className="form bg-dark">
       <button onClick={()=>setclicked(false)} type="button" class="btn-close bg-white btnCloseForm" aria-label="Close"></button>
- <form>
+ <form className='bg-dark'>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
     <input ref={titleRef} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
