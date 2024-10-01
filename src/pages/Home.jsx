@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Home = () => {
   let ctx = useContext(UserContext);
-  console.log(ctx)
+  // console.log(ctx)
 
   const [clicked, setclicked] = useState(false);
   const [files, setfiles] = useState("");
@@ -14,21 +14,18 @@ const Home = () => {
 
   const handleInputChanger=(e)=>{
     let value=e.target.files[0]
-    console.log(value)
+    // console.log(value)
     setfiles(value)
   }
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
-
     let formData = new FormData();
     formData.append('file',files);
     formData.append('upload_preset','social')
     
     let data = await axios.post(' https://api.cloudinary.com/v1_1/doeogvoiy/upload',formData)
     // console.log(data.data.secure_url)
-
-
     let obj = {
       title:titleRef.current.value,
       description:descriptionRef.current.value,
@@ -40,41 +37,10 @@ const Home = () => {
             'Authorization':ctx.details.token
            }
          });
-         console.log(res.data)
+        //  console.log(res.data)
          setclicked(false)
   }
 
-
-  // method -1 using file reader
-  // const handleSubmit=(e)=>{
-  //   e.preventDefault()
-
-  //   let reader = new FileReader();
-  //   reader.readAsDataURL(files);
-
-  //   reader.onload=async()=>{
-
-  //     let obj={
-  //       title:titleRef.current.value,
-  //       description:descriptionRef.current.value,
-  //       file:reader.result
-  //     }
-  //     console.log(obj)
-  //     let res = await axios.post('http://localhost:5000/posts/create',obj,{
-  //       headers:{
-  //         'Authorization':ctx.details.token
-  //       }
-  //     });
-  //     let data = res.data
-  //     console.log(data)
-  //     setclicked(false)
-  //   }
-  //   reader.onerror=()=>{
-  //     console.log(reader.error)
-  //   }
-   
-    
-  // }
   return (
     <div className='row m-0 p-0 bg-info mt-2' >
      <div className="col-md-2 col-sm-3 mt-2 create ">
@@ -105,10 +71,8 @@ const Home = () => {
   <input onChange={handleInputChanger} className="form-control form-control-sm" id="formFileSm" type="file"/>
 </div>
  
-
   <button onClick={handleSubmit} type="submit" className="btn btn-primary">Submit</button>
 </form>
-
       </div>}
 
     </div>

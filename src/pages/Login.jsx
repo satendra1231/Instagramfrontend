@@ -3,8 +3,6 @@ import React, { useContext,  useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import UserContext from '../context/UserContext'
-
-
 import Sheet from '@mui/joy/Sheet';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Typography from '@mui/joy/Typography';
@@ -16,11 +14,8 @@ import Button from '@mui/joy/Button';
 
 const Login = () => {
   let ctx = useContext(UserContext)
-  console.log(ctx)
-
+  // console.log(ctx)
   let navigate = useNavigate()
-
-
  const [LoginForm, setLoginForm] = useState({
   email:"",
   password:""
@@ -34,19 +29,15 @@ const Login = () => {
 
  const handleSubmit = async(e)=>{
   e.preventDefault();
-  // let obj = {
-  //   email:emailRef.current.value,
-  //   password:passwordRef.current.value
-  // }
     let obj={
     email:LoginForm.email,
     password:LoginForm.password
     }
 //  console.log(LoginForm)
- console.log(obj)
+//  console.log(obj)
   let res = await axios.post('https://backendpart-qfio.onrender.com/users/login',obj)
   if(res.data.success){
-    console.log(res.data)
+    // console.log(res.data)
     localStorage.setItem('socialDetails',JSON.stringify({login:true,token:res.data.token}))
     ctx.setdetails({login:true,token:res.data.token})
     toast.success(res.data.msg,{position:"top-center"})
@@ -88,8 +79,6 @@ const Login = () => {
       <FormControl>
         <FormLabel>Email</FormLabel>
         <Input
-          // html input attribute
-          // ref={emailRef}
           onChange={handleLogin}
           required
           name="email"

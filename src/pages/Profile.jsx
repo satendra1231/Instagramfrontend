@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
@@ -11,7 +10,7 @@ import axios from 'axios';
 
 const Profile = () => {
   const [details, setdetails] = useState("");
-  console.log(details)
+  // console.log(details)
   let store = useContext(UserContext)
 
   let getUser=async()=>{
@@ -52,7 +51,7 @@ const Profile = () => {
       })
 
       let data = await res.json();
-      console.log(data)
+      // console.log(data)
       nameRef.current.value=""
       passwordRef.current.value=""
 

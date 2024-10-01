@@ -10,7 +10,6 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 
 const ForgetPassword = () => {
-    let emailRef = useRef();
     const [msg, setmsg] = useState();
     const [forget, setforget] = useState("");
 
@@ -28,7 +27,7 @@ const ForgetPassword = () => {
         console.log(obj)
         let res = await axios.post('https://backendpart-qfio.onrender.com/users/forget-password',obj);
         let data = res.data
-        console.log(data)
+        // console.log(data)
         setmsg(data.msg) 
     }
   return (
@@ -81,17 +80,6 @@ const ForgetPassword = () => {
 
       {msg && <Link to={'/login'}  className='btn btn-success'>Login</Link>}
   </div>
-
-
-    // <div>
-    // { msg? <h1>{msg}</h1>:<form action="">
-    //     <label htmlFor="">Enter your email</label>
-    //     <input ref={emailRef} type="email" name="" id="" />
-    //     <button onClick={handleSubmit}>Submit</button>
-    //   </form>}
-
-    //  {msg && <Link to={'/login'}  className='btn btn-success'>Login</Link>}
-    // </div>
   )
 }
 

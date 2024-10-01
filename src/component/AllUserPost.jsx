@@ -1,8 +1,5 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { CiHeart } from "react-icons/ci";
-import { FaHeart } from "react-icons/fa";
-import { MdOutlineInsertComment } from "react-icons/md";
  import UserContext from '../context/UserContext';
 
 import AspectRatio from '@mui/joy/AspectRatio';
@@ -13,46 +10,37 @@ import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Link from '@mui/joy/Link';
 import IconButton from '@mui/joy/IconButton';
-import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
-import MoreHoriz from '@mui/icons-material/MoreHoriz';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import ModeCommentOutlined from '@mui/icons-material/ModeCommentOutlined';
-import SendOutlined from '@mui/icons-material/SendOutlined';
+// import SendOutlined from '@mui/icons-material/SendOutlined';
 import Face from '@mui/icons-material/Face';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
-import { CardMedia } from '@mui/material';
 import { IoEye } from "react-icons/io5";
 import { red } from '@mui/material/colors';
 import { jwtDecode } from "jwt-decode";
 import ShowSingleBlog from '../pages/ShowSingleBlog';
 import AddComments from '../pages/AddComments';
-import { FaRegHeart } from "react-icons/fa6";
+// import { FaRegHeart } from "react-icons/fa6";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
-
 
 const AllUserPost = (props) => {
     let ctx = useContext(UserContext)
     let token = ctx.details.token
-    console.log(token)
+    // console.log(token)
     const decoded = jwtDecode(token);
-   console.log(decoded)
+  //  console.log(decoded)
 
     const [AllPosts, setAllPosts] = useState([]);
-    const [heartclick, setheartclick] = useState(false);
+    // const [heartclick, setheartclick] = useState(false);
     const [selectedPostId, setselectedPostId] = useState("");
     const [postSubmited, setpostSubmited] = useState(false);
     const [IsModalOpen, setIsModalOpen] = useState(false);
 
     let commentRef = useRef()
    
-
-
     let getAllData = async()=>{
         let res = await axios.get('https://backendpart-qfio.onrender.com/posts/getall')
         let data = res.data;
-        console.log(data.data)
+        // console.log(data.data)
         setAllPosts(data.data)
     }
     useEffect(()=>{
@@ -69,7 +57,7 @@ const AllUserPost = (props) => {
         }
        })
        let data = await res.json();
-       console.log(data)
+      //  console.log(data)
        getAllData()
         }
 
@@ -88,8 +76,8 @@ const AllUserPost = (props) => {
 
     const submitComment=async()=>{
         let text = commentRef.current.value;
-        console.log(text)
-        console.log(token)
+        // console.log(text)
+        // console.log(token)
 
         let res = await fetch(`https://backendpart-qfio.onrender.com/posts/addComment/${selectedPostId}`,{
             method:'POST',
@@ -100,7 +88,7 @@ const AllUserPost = (props) => {
             body:JSON.stringify({text:text})
         })
         let data = await res.json()
-        console.log(data)
+        // console.log(data)
         setpostSubmited(!postSubmited)
     }
     const [open, setOpen] = React.useState(false);
@@ -118,23 +106,20 @@ const [selectedEle, setselectedEle] = useState("");
     }, 2000);
   };
 
-      let commentpostRef = useRef();
-      let oneRef = React.useRef()
-
       const [commentPost, setcommentPost] = useState("");
       const handleChanger=(e)=>{
         // console.log(e.target.value)
         let commentHandle=e.target.value
-        console.log(commentHandle)
+        // console.log(commentHandle)
         setcommentPost(commentHandle)
       }
-      console.log(commentPost)
+      // console.log(commentPost)
     const submitCommentHandle = async(postId)=>{
         console.log(postId)
         let obj = {
           text:commentPost
         }
-        console.log(obj)
+        // console.log(obj)
         let res = await fetch(`https://backendpart-qfio.onrender.com/posts/addComment/${postId}`,{
           method:"POST",
           headers:{
@@ -144,7 +129,7 @@ const [selectedEle, setselectedEle] = useState("");
           body:JSON.stringify(obj)
         })
         let data = await res.json();
-        console.log(data)
+        // console.log(data)
         getAllData()
         setcommentPost("")
        }
@@ -176,12 +161,7 @@ const [selectedEle, setselectedEle] = useState("");
                     },
                   }}
                 >
-                  {/* <Avatar
-                    size="sm"
-                     //src="/static/logo.png"
-                    sx={{ p: 0.5, border: '2px solid', borderColor: 'background.body' }}
-                   
-                  /> */}
+           
                     <Avatar sx={{ bgcolor: red[500],fontSize:35}} aria-label="recipe">
                       {ele.userId.name[0]}
                     </Avatar>
@@ -189,9 +169,7 @@ const [selectedEle, setselectedEle] = useState("");
                      
                 </Box>
                 <Typography sx={{ fontWeight: 'lg' }}>{ele.userId.name}</Typography>
-                {/* <IconButton variant="plain" color="neutral" size="sm" sx={{ ml: 'auto' }}>
-                  <MoreHoriz />
-                </IconButton> */}
+                
               </CardContent>
               <CardOverflow>
                 <AspectRatio>
@@ -200,8 +178,6 @@ const [selectedEle, setselectedEle] = useState("");
                       <video controls src={ele.file} ></video>
                       }
 
-
-                  
                 </AspectRatio>
               </CardOverflow>
               <CardContent orientation="horizontal" sx={{ alignItems: 'center', mx: -1 }}>
@@ -215,31 +191,14 @@ const [selectedEle, setselectedEle] = useState("");
                   {ele._id===selectedPostId && <div className=' col-md-3'>
           <AddComments token={token} getAllData={getAllData} isModalOpen={IsModalOpen} handleCancel={handleCancel} handleOk={handleOk} ele={ele}/>
          </div>}
-{/* 
-                  <IconButton variant="plain" color="neutral" size="sm">
-                    <SendOutlined />
-                  </IconButton> */}
+
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mx: 'auto' }}>
-                  {/* {[...Array(5)].map((_, index) => (
-                    <Box
-                      key={index}
-                      sx={[
-                        {
-                          borderRadius: '50%',
-                          width: `max(${6 - index}px, 3px)`,
-                          height: `max(${6 - index}px, 3px)`,
-                        },
-                        index === 0
-                          ? { bgcolor: 'primary.solidBg' }
-                          : { bgcolor: 'background.level3' },
-                      ]}
-                    />
-                  ))} */}
+              
                 </Box>
                 <Box sx={{ width: 0, display: 'flex', flexDirection: 'row-reverse' }}>
                    <IconButton variant="plain" color="neutral" size="sm">
-                   {/* <IoEye /> */}
+                 
                    <IoEye style={{fontSize:"40px"}}  onClick={()=>showLoading(ele)}/>
                {ele._id===selectedEle._id && <ShowSingleBlog ele={selectedEle}  open={open} setOpen={setOpen} loading={loading} showLoading={showLoading}/>}
 
@@ -282,26 +241,13 @@ const [selectedEle, setselectedEle] = useState("");
                   sx={{ fontSize: 'sm', color: 'text.tertiary' }}
                 >
                 </Link>
-                {/* <Link
-                  component="button"
-                  underline="none"
-                  sx={{ fontSize: '10px', color: 'text.tertiary', my: 0.5 }}
-                >
-                  2 DAYS AGO
-                </Link> */}
+                
               </CardContent>
               <CardContent orientation="horizontal" sx={{ gap: 1 }}>
                 <IconButton size="sm" variant="plain" color="neutral" sx={{ ml: -1 }}>
                   <Face />
                 </IconButton>
-                {/* <Input  ref={commentpostRef}
-                  variant="plain"
-                  size="sm"
-                  placeholder="Add a comment…"
-                  sx={{ flex: 1, px: 0, border:1, p:1, '--Input-focusedThickness': '0px' }}
-                 
-                /> */}
-               
+              
                 <input onChange={handleChanger} type="text" value={commentPost} placeholder='Add a comment ........' className='w-75'/>
                   <button className='btn btn-success' onClick={()=>submitCommentHandle(ele._id)}>Post</button>
               </CardContent>

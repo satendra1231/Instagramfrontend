@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Modal } from 'antd';
 
 const ShowSingleBlog = (props) => {
-    console.log(props.ele)
+    // console.log(props.ele)
     let ele = props.ele
     return (
       <>

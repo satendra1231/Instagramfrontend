@@ -65,7 +65,7 @@ export default function Navbar() {
   let navigate = useNavigate();
 
   let login = ctx.details.login
-  console.log(login) 
+  // console.log(login) 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -116,7 +116,7 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
      {login===true && <MenuItem onClick={handleMenuClose}><Link style={{textDecoration:"none",color:"black"}} to='/user/profile'>Profile</Link></MenuItem>}
-      {login===true && <MenuItem onClick={handleMenuClose}>My account</MenuItem>}
+      {/* {login===true && <MenuItem onClick={handleMenuClose}>My account</MenuItem>} */}
      {login===false  && <MenuItem ><Link style={{textDecoration:"none", color:"black"}} to={'/login'}>Login</Link></MenuItem>}
      {login===false && <MenuItem ><Link style={{textDecoration:"none", color:"black"}} to={'/sign'}>signup</Link></MenuItem>}
      

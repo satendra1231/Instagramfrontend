@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GetpostComments = (props) => {
-  console.log(props.comments)
+  // console.log(props.comments)
     return (
     <div>
       {props.comments.map((ele)=>{
