@@ -6,17 +6,14 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link,  useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
+import { IoMdHome } from "react-icons/io";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -181,23 +178,24 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed"sx={{ bgcolor: "lightseagreen" }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            {/* <MenuIcon /> */}
-          </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-          <Link to={'/'} style={{color:"white", textDecoration:"none"}} >Instagram</Link>
+         <h1>Instagram</h1>
           </Typography>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2, marginLeft:2 }}
+          >
+             <Link to={'/'} style={{color:"white", textDecoration:"none", marginBottom:5}} > <IoMdHome /></Link>
+            {/* <MenuIcon /> */}
+          </IconButton>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
