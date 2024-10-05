@@ -60,7 +60,7 @@ const AddComments = (props) => {
           >
             <MDBCardBody>
               <div className='d-flex gap-1 mb-4'>
-              <MDBInput ref={commentRef}  placeholder="Type comment..." label="+ Add a note" />
+              <MDBInput ref={commentRef}  placeholder="Type comment..." label="+ Add comment" />
               <button className='btn btn-success' style={{height:"40px"}} onClick={()=>submitCommentHandler(props.ele._id)}>submit</button>
               </div>
 

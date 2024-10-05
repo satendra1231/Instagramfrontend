@@ -33,7 +33,7 @@ const ForgetPassword = () => {
   return (
 
   <div >
-    { msg? <h1>{msg}</h1>:<main className='m-auto' style={{width:"40vw"}}>
+    { msg? <h1>{msg}</h1>:<main className='m-auto' style={{width:"45vw"}}>
     <CssBaseline />
     <Sheet
       sx={{
@@ -68,7 +68,7 @@ const ForgetPassword = () => {
           placeholder="johndoe@email.com"
         />
       </FormControl>
-      <Button sx={{ mt: 1 /* margin top */ }} className='w-50 m-auto' onClick={handleSubmit}>SUBMIT</Button>
+      <Button sx={{ mt: 1 /* margin top */ }} className='w-50 m-auto'  onClick={handleSubmit}>SUBMIT</Button>
       <Typography
         endDecorator={<Link to={'/login'}>Login</Link>}
         sx={{ fontSize: 'sm', alignSelf: 'center' }}
