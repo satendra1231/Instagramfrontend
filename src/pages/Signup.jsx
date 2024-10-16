@@ -47,7 +47,7 @@ const Signup = () => {
     }
   }
   return (
-    <main className='m-auto' style={{width:'60vw'}}>
+    <main className='m-auto ' style={{width:'60vw'}}>
     {/* <ModeToggle /> */}
     <CssBaseline />
     <Sheet
