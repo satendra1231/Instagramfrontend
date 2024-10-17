@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Home = () => {
   let ctx = useContext(UserContext);
-  console.log(ctx)
+  // console.log(ctx)
 
   const [clicked, setclicked] = useState(false);
   const [files, setfiles] = useState("");
@@ -14,7 +14,7 @@ const Home = () => {
 
   const handleInputChanger=(e)=>{
     let value=e.target.files[0]
-    console.log(value)
+    // console.log(value)
     setfiles(value)
   }
 
@@ -37,7 +37,7 @@ const Home = () => {
             'Authorization':ctx.details.token
            }
          });
-         console.log(res.data)
+        //  console.log(res.data)
          setclicked(false)
   }
 

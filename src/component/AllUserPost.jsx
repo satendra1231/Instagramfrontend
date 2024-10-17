@@ -41,7 +41,7 @@ const AllUserPost = (props) => {
     let getAllData = async()=>{
         let res = await axios.get('https://backendpart-qfio.onrender.com/posts/getall')
         let data = res.data;
-        console.log(data.data)
+        // console.log(data.data)
         setAllPosts(data.data)
     }
     useEffect(()=>{
@@ -49,7 +49,7 @@ const AllUserPost = (props) => {
     },[props.clicked,postSubmited])
    
     const handleHeart = async(postId)=>{
-       console.log(postId)
+      //  console.log(postId)
        let res = await fetch(`https://backendpart-qfio.onrender.com/posts/updatelike/${postId}`,{
         method:"PUT",
         headers:{
