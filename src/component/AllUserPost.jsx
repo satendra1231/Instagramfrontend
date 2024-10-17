@@ -24,6 +24,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const AllUserPost = (props) => {
     let ctx = useContext(UserContext)
+    // console.log(ctx)
     let token = ctx.details.token
     // console.log(token)
     const decoded = jwtDecode(token);
@@ -40,13 +41,13 @@ const AllUserPost = (props) => {
     let getAllData = async()=>{
         let res = await axios.get('https://backendpart-qfio.onrender.com/posts/getall')
         let data = res.data;
-        // console.log(data.data)
+        console.log(data.data)
         setAllPosts(data.data)
     }
     useEffect(()=>{
         getAllData()
     },[props.clicked,postSubmited])
-
+   
     const handleHeart = async(postId)=>{
        console.log(postId)
        let res = await fetch(`https://backendpart-qfio.onrender.com/posts/updatelike/${postId}`,{
@@ -142,6 +143,7 @@ const [selectedEle, setselectedEle] = useState("");
               variant="outlined"
               sx={{ minWidth: 300, '--Card-radius': (theme) => theme.vars.radius.xs }}
             >
+             
               <CardContent orientation="horizontal" sx={{ alignItems: 'center', gap: 1 }}>
                 <Box
                   sx={{
@@ -161,11 +163,11 @@ const [selectedEle, setselectedEle] = useState("");
                     },
                   }}
                 >
-           
+                  
                     <Avatar sx={{ bgcolor: red[500],fontSize:35}} aria-label="recipe">
-                      {ele.userId.name[0]}
+                       {ele.userId.name[0]}
                     </Avatar>
-                
+                                 
                      
                 </Box>
                 <Typography sx={{ fontWeight: 'lg' }}>{ele.userId.name}</Typography>
@@ -223,7 +225,7 @@ const [selectedEle, setselectedEle] = useState("");
                     sx={{ fontWeight: 'lg' }}
                   >
                     {ele.userId.name} 
-                  </Link>{' '}
+                  </Link>
                   {ele.title}
                 </Typography>
                 <Link className='text-truncate' width={"400px"}
